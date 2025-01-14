@@ -26,7 +26,7 @@ if (! defined('ABSPATH')) {
     </div>
 
     <div class="front-header">
-        <?php the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
+        <?php the_title('<h2 class="front-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
     </div><!-- .entry-header -->
 
     <div class="front-meta">

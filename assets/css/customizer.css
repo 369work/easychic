@@ -59,3 +59,24 @@
 #customize-theme-controls .radio-image-control input[type="radio"]:checked+img {
     border-color: #0073aa;
 }
+
+#customize-control-easychic_font_setting label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#customize-control-easychic_font_setting .noto-sans-jp {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+#customize-control-easychic_font_setting .noto-serif-jp {
+    font-family: 'Noto Serif JP', serif;
+}
+
+#customize-control-easychic_font_setting .m-plus-rounded-1c {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+#customize-control-easychic_font_setting .shippori-mincho {
+    font-family: 'Shippori Mincho', serif;
+}

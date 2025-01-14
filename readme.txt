@@ -22,8 +22,8 @@ The responsive design ensures beautiful display across all devices.
 Key Features:
 * Easy customization with WordPress Customizer
 * Full Block Editor Support
-* SEO Friendly
 * Fast Loading
+* Responsive Design
 
 == Installation ==
 1. Go to "Appearance" → "Themes" in the admin panel
@@ -41,17 +41,20 @@ You can customize various settings from Appearance → Customize in the admin pa
 Yes, you can use it commercially under the GNU GPL v3.0 license.
 
 == Changelog ==
-= 1.0.0 =
+= 1.0 =
 * Initial Release
 * Block Editor Support
-* Responsive Design Implementation
+* Responsive Design
+= 1.1 =
+* Change fonts
+* bug fix file
 
 == Upgrade Notice ==
-= 1.0.0 =
+= 1.0 =
 * Initial release version
 
 == Resources Licenses ==
-* Google Fonts: https://fonts.google.com/ (M Plus Rounded 1c, Noto Sans JP, Noto Serif JP, Shippori Mincho) SIL Open Font License, Version 1.1 (https://openfontlicense.org).
+* Google Fonts: https://fonts.google.com/ (Noto Sans JP, Noto Serif JP) SIL Open Font License, Version 1.1 (https://openfontlicense.org).
 * Image and screenshot : Copyright 369work(https://369work.net). licensed under CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)
 
 

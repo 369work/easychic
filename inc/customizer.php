@@ -36,6 +36,31 @@ function easychic_customize_register($wp_customize)
     ));
 
     // Select font settings
+    class Font_Radio_Control extends WP_Customize_Control
+    {
+        public $type = 'radio-font';
+
+        public function render_content()
+        {
+            if (empty($this->choices)) {
+                return;
+            }
+            ?>
+            <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+            <?php if (!empty($this->description)) : ?>
+                <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
+            <?php endif; ?>
+
+            <?php foreach ($this->choices as $value => $label) : ?>
+                <label>
+                    <input type="radio" value="<?php echo esc_attr($value); ?>" name="<?php echo esc_attr($this->id); ?>" <?php $this->link(); ?> <?php checked($this->value(), $value); ?> />
+                    <span class="<?php echo esc_attr(strtolower(str_replace(' ', '-', $value))); ?>"><?php echo esc_html($label); ?></span>
+                </label>
+            <?php endforeach; ?>
+        <?php
+        }
+    }
+
     $wp_customize->add_section('easychic_font_section', array(
         'title' => esc_html__('EasyChic Font Select', 'easychic'),
         'priority' => 2,
@@ -43,22 +68,24 @@ function easychic_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('easychic_font_setting', array(
-        'default' => 'Noto Sans JP',
+        'default' => 'noto-sans-jp',
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field',
     ));
 
-    $wp_customize->add_control('easychic_font_setting', array(
+    $wp_customize->add_control(new Font_Radio_Control($wp_customize, 'easychic_font_setting', array(
         'label' => esc_html__('EasyChic Font Setting', 'easychic'),
         'section' => 'easychic_font_section',
-        'type' => 'select',
+        'settings' => 'easychic_font_setting',
+        'type' => 'radio',
         'choices' => array(
-            'Noto Sans JP' => esc_html__('Noto Sans JP', 'easychic'),
-            'Noto Serif JP' => esc_html__('Noto Serif JP', 'easychic'),
-            'M PLUS Rounded 1c' => esc_html__('M PLUS Rounded 1c', 'easychic'),
-            'Shippori Mincho' => esc_html__('Shippori Mincho', 'easychic'),
-        )
-    ));
+            'noto-sans-jp' => 'Noto Sans JP',
+            'noto-serif-jp' => 'Noto Serif JP',
+            'm-plus-rounded-1c' => 'M PLUS Rounded 1c',
+            'shippori-mincho' => 'Shippori Mincho',
+        ),
+        'description' => esc_html__('Select the font for your site.', 'easychic'),
+    )));
 
     // Header CTA Button Text
     $wp_customize->add_setting('easychic_header_cta_text', array(
@@ -121,7 +148,7 @@ function easychic_customize_register($wp_customize)
             if (empty($this->choices)) {
                 return;
             }
-            ?>
+        ?>
             <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
             <?php if (! empty($this->description)) : ?>
                 <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
@@ -129,13 +156,13 @@ function easychic_customize_register($wp_customize)
             <div class="radio-image-control">
                 <?php foreach ($this->choices as $value => $label) : ?>
                     <label>
-                        <input type="radio" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($value); ?>" <?php $this->link();
-                                                                                                                                    checked($this->value(), $value); ?>>
-                        <img src="<?php echo esc_url($label); ?>" alt="<?php echo esc_attr($value); ?>" >
+                        <input type="radio" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($value); ?>"
+                        <?php $this->link(); checked($this->value(), $value); ?>>
+                        <img src="<?php echo esc_url($label); ?>" alt="<?php echo esc_attr($value); ?>">
                     </label>
                 <?php endforeach; ?>
             </div>
-            <?php
+    <?php
         }
     }
 
@@ -164,8 +191,6 @@ function easychic_customize_register($wp_customize)
             'style4' => EASYCHIC_THEME_IMAGE . '/icons/style_select4.webp',
         ),
     )));
-
-
 }
 add_action('customize_register', 'easychic_customize_register');
 
@@ -186,21 +211,7 @@ function easychic_sanitize_layout($input)
 // Customizer body font CSS
 function easychic_customizer_body_css()
 {
-    $font = esc_attr(get_theme_mod('easychic_font_setting', 'Noto Sans JP'));
-    switch ($font) {
-        case 'Noto Sans JP':
-            $font_css = 'noto-sans-jp';
-            break;
-        case 'Noto Serif JP':
-            $font_css = 'noto-serif-jp';
-            break;
-        case 'M PLUS Rounded 1c':
-            $font_css = 'm-plus-rounded-1c';
-            break;
-        case 'Shippori Mincho':
-            $font_css = 'shippori-mincho';
-            break;
-    }
+    $font_css = esc_attr(get_theme_mod('easychic_font_setting', 'noto-sans-jp'));
 
     if (!empty($font_css)) {
         add_filter('body_class', function ($classes) use ($font_css) {
@@ -339,7 +350,7 @@ function easychic_customizer_style_css()
         echo 'header a { color: ' . esc_attr($style['header']['link-color']) . '; }' . "\n";
     }
     if (isset($style['footer'])) {
-        echo 'footer { background-color: ' . esc_attr($style['footer']['background-color']) . '; color: ' . esc_attr($style['footer']['text-color']) . '; }'. "\n";
+        echo 'footer { background-color: ' . esc_attr($style['footer']['background-color']) . '; color: ' . esc_attr($style['footer']['text-color']) . '; }' . "\n";
         echo 'footer h3 { color: ' . esc_attr($style['footer']['heading-color']) . '; }' . "\n";
     }
     if (isset($style['main'])) {
@@ -349,6 +360,5 @@ function easychic_customizer_style_css()
         echo 'aside { background-color: ' . esc_attr($style['sidebar']['background-color']) . '; color: ' . esc_attr($style['sidebar']['text-color']) . '; }' . "\n";
     }
     echo '</style>';
-
 }
 add_action('wp_head', 'easychic_customizer_style_css');

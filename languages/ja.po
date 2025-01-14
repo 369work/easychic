@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Easychic\n"
-"POT-Creation-Date: 2025-01-07 19:39+0900\n"
-"PO-Revision-Date: 2025-01-07 19:40+0900\n"
+"POT-Creation-Date: 2025-01-10 19:55+0900\n"
+"PO-Revision-Date: 2025-01-10 19:56+0900\n"
 "Last-Translator: \n"
 "Language-Team: 369work\n"
 "Language: ja\n"
@@ -26,12 +26,12 @@ msgstr "お探しのページは見つかりませんでした。"
 #: archive.php:40 front-page.php:33 index.php:28
 #, php-format
 msgid "%s Older"
-msgstr "%s 古い"
+msgstr "%s 古い記事"
 
 #: archive.php:41 front-page.php:34 index.php:29
 #, php-format
 msgid "Newer %s"
-msgstr "%s 新しい"
+msgstr "%s 新しい記事"
 
 #: comments.php:28
 #, php-format
@@ -58,39 +58,39 @@ msgstr "コメントはクローズされました."
 msgid "Follow Us"
 msgstr "Follow Us"
 
-#: functions.php:94
+#: functions.php:100
 msgid "Sidebar"
 msgstr "サイトバー"
 
-#: functions.php:96
+#: functions.php:102
 msgid "Add widgets here to appear in your sidebar."
 msgstr "サイドバーに表示するウィジェットを追加します。"
 
-#: functions.php:108
+#: functions.php:114
 msgid "Primary Menu"
 msgstr "メインメニュー"
 
-#: functions.php:109
+#: functions.php:115
 msgid "Footer SNS Menu"
 msgstr "フッターSNSメニュー"
 
-#: functions.php:110
+#: functions.php:116
 msgid "Footer Left Menu"
 msgstr "フッター左メニュー"
 
-#: functions.php:111
+#: functions.php:117
 msgid "Footer Right Menu"
 msgstr "フッター右メニュー"
 
-#: functions.php:127
+#: functions.php:133
 msgid "Skip to the content"
 msgstr "コンテンツにスキップ"
 
-#: functions.php:136
+#: functions.php:142
 msgid "Powered by "
 msgstr "Powered by "
 
-#: functions.php:139
+#: functions.php:145
 msgid "Easychic Theme by "
 msgstr "Easychic Theme by "
 
@@ -252,7 +252,7 @@ msgstr "EasyChic ページレイアウト"
 msgid "One Column Sidebar None"
 msgstr "1カラムサイドバーなし"
 
-#: inc/customizer.php:33 inc/customizer.php:175
+#: inc/customizer.php:33 inc/customizer.php:200
 msgid "One Column Sidebar bottom"
 msgstr "1カラムサイドバー下"
 
@@ -260,59 +260,47 @@ msgstr "1カラムサイドバー下"
 msgid "Two Columns Sidebar Right"
 msgstr "2カラムサイドバー右"
 
-#: inc/customizer.php:40
+#: inc/customizer.php:65
 msgid "EasyChic Font Select"
 msgstr "EasyChic フォント選択"
 
-#: inc/customizer.php:52
+#: inc/customizer.php:77
 msgid "EasyChic Font Setting"
 msgstr "EasyChic フォント設定"
 
-#: inc/customizer.php:56
-msgid "Noto Sans JP"
-msgstr "Noto Sans JP"
+#: inc/customizer.php:87
+msgid "Select the font for your site."
+msgstr "サイトのフォントを選択してください。"
 
-#: inc/customizer.php:57
-msgid "Noto Serif JP"
-msgstr "Noto Serif JP"
-
-#: inc/customizer.php:58
-msgid "M PLUS Rounded 1c"
-msgstr "M PLUS Rounded 1c"
-
-#: inc/customizer.php:59
-msgid "Shippori Mincho"
-msgstr "Shippori Mincho"
-
-#: inc/customizer.php:71
+#: inc/customizer.php:98
 msgid "Header CTA Button Text"
 msgstr "ヘッダーCTAボタンのテキスト"
 
-#: inc/customizer.php:84
+#: inc/customizer.php:111
 msgid "Header CTA Button URL"
 msgstr "ヘッダーCTAボタンのリンク先"
 
-#: inc/customizer.php:97
+#: inc/customizer.php:124
 msgid "Header CTA Button Background Color"
 msgstr "ヘッダーCTAボタンの背景色"
 
-#: inc/customizer.php:109
+#: inc/customizer.php:136
 msgid "Header CTA Button Text Color"
 msgstr "ヘッダーCTAボタンのテキスト色"
 
-#: inc/customizer.php:144
+#: inc/customizer.php:171
 msgid "Site Style Select"
 msgstr "サイトスタイルの選択"
 
-#: inc/customizer.php:157
+#: inc/customizer.php:184
 msgid "Select Image"
 msgstr "イメージの選択"
 
-#: inc/customizer.php:176
+#: inc/customizer.php:201
 msgid "One Column Sidebar none"
 msgstr "1カラムサイトバーなし"
 
-#: inc/customizer.php:177
+#: inc/customizer.php:202
 msgid "Two Columns Sidebar right"
 msgstr "2カラムサイトバー右"
 
@@ -412,6 +400,18 @@ msgstr "&laquo; 前のページ"
 #: template-parts/pagination.php:28
 msgid "Next Page &raquo;"
 msgstr "次のページ &raquo;"
+
+#~ msgid "Noto Sans JP"
+#~ msgstr "Noto Sans JP"
+
+#~ msgid "Noto Serif JP"
+#~ msgstr "Noto Serif JP"
+
+#~ msgid "M PLUS Rounded 1c"
+#~ msgstr "M PLUS Rounded 1c"
+
+#~ msgid "Shippori Mincho"
+#~ msgstr "Shippori Mincho"
 
 #~ msgid "Widget placement"
 #~ msgstr "ウィジェットの位置"

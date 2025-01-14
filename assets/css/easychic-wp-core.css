@@ -207,6 +207,7 @@ h1.page-title::after {
 
 h2.entry-title {
     font-size: clamp(1.2rem, calc(0.75rem + 1vw), 1.5rem);
+    line-height: 1.2;
     margin-bottom: 1.5rem;
     overflow: hidden;
     text-overflow: ellipsis;

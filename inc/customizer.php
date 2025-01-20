@@ -81,8 +81,6 @@ function easychic_customize_register($wp_customize)
         'choices' => array(
             'noto-sans-jp' => 'Noto Sans JP',
             'noto-serif-jp' => 'Noto Serif JP',
-            'm-plus-rounded-1c' => 'M PLUS Rounded 1c',
-            'shippori-mincho' => 'Shippori Mincho',
         ),
         'description' => esc_html__('Select the font for your site.', 'easychic'),
     )));
@@ -344,21 +342,24 @@ function easychic_customizer_style_css()
         $style = $style4;
     }
 
-    echo '<style>';
+    $custom_css = '';
     if (isset($style['header'])) {
-        echo 'header { background-color: ' . esc_attr($style['header']['background-color']) . '; color: ' . esc_attr($style['header']['text-color']) . '; }' . "\n";
-        echo 'header a { color: ' . esc_attr($style['header']['link-color']) . '; }' . "\n";
+        $custom_css .= 'header { background-color: ' . esc_attr($style['header']['background-color']) . '; color: ' . esc_attr($style['header']['text-color']) . '; }' . "\n";
+        $custom_css .= 'header a { color: ' . esc_attr($style['header']['link-color']) . '; }' . "\n";
     }
     if (isset($style['footer'])) {
-        echo 'footer { background-color: ' . esc_attr($style['footer']['background-color']) . '; color: ' . esc_attr($style['footer']['text-color']) . '; }' . "\n";
-        echo 'footer h3 { color: ' . esc_attr($style['footer']['heading-color']) . '; }' . "\n";
+        $custom_css .= 'footer { background-color: ' . esc_attr($style['footer']['background-color']) . '; color: ' . esc_attr($style['footer']['text-color']) . '; }' . "\n";
+        $custom_css .= 'footer h3 { color: ' . esc_attr($style['footer']['heading-color']) . '; }' . "\n";
     }
     if (isset($style['main'])) {
-        echo 'main { background-color: ' . esc_attr($style['main']['background-color']) . '; color: ' . esc_attr($style['main']['text-color']) . '; }' . "\n";
+        $custom_css .= 'main { background-color: ' . esc_attr($style['main']['background-color']) . '; color: ' . esc_attr($style['main']['text-color']) . '; }' . "\n";
     }
     if (isset($style['sidebar'])) {
-        echo 'aside { background-color: ' . esc_attr($style['sidebar']['background-color']) . '; color: ' . esc_attr($style['sidebar']['text-color']) . '; }' . "\n";
+        $custom_css .= 'aside { background-color: ' . esc_attr($style['sidebar']['background-color']) . '; color: ' . esc_attr($style['sidebar']['text-color']) . '; }' . "\n";
     }
-    echo '</style>';
+    wp_register_style('theme-style-handle', false);
+    wp_enqueue_style('theme-style-handle');
+    wp_add_inline_style('theme-style-handle', $custom_css);
+
 }
 add_action('wp_head', 'easychic_customizer_style_css');

@@ -24,14 +24,14 @@
                         the_post();
                         get_template_part('template-parts/content', get_post_format());
                     endwhile;
-                    $args = array(
-                        'prev_text' => sprintf(esc_html__('%s Older', 'easychic'), '<span class="meta-nav"> < </span>'),
-                        'next_text' => sprintf(esc_html__('Newer %s', 'easychic'), '<span class="meta-nav"> > </span>')
-                    );
-                    $navigation = get_the_post_navigation($args);
-                    if ($navigation) :
-                        echo $navigation;
-                    endif;
+                ?>
+                    <div class="navigation">
+                        <div class="previous">
+                            <?php esc_html_e(previous_posts_link(__('&laquo; Previous Page', 'easychic')), 'easychic'); ?></div>
+                        <div class="next"><?php esc_html_e(next_posts_link(__('Next Page &raquo;', 'easychic')), 'easychic'); ?>
+                        </div>
+                    </div>
+                <?php
                 else :
                     get_template_part('template-parts/content-none');
                 endif;

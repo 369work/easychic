@@ -48,21 +48,8 @@
                             'menu' => 'header-nav',
                             'menu_class' => 'pc_menu',
                             'menu_id' => 'pc-menu',
-                            'container' => '',
-                            'container_class' => '',
-                            'container_id' => '',
-                            'container_aria_label' => '',
-                            'fallback_cb' => false,
-                            'before' => '',
-                            'after' => '',
-                            'link_before' => '',
-                            'link_after' => '',
-                            'echo' => true,
-                            'depth' => 1,
-                            'walker' => '',
+                            'container' => 'ul',
                             'theme_location' => 'primary',
-                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                            'item_spacing' => 'preserve'
                         ));
 
                         ?>
@@ -86,21 +73,8 @@
                             'menu' => 'header-nav',
                             'menu_class' => 'sp_menu',
                             'menu_id' => 'sp-menu',
-                            'container' => '',
-                            'container_class' => '',
-                            'container_id' => '',
-                            'container_aria_label' => '',
-                            'fallback_cb' => false,
-                            'before' => '',
-                            'after' => '',
-                            'link_before' => '',
-                            'link_after' => '',
-                            'echo' => true,
-                            'depth' => 3,
-                            'walker' => '',
+                            'container' => 'ul',
                             'theme_location' => 'primary',
-                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                            'item_spacing' => 'preserve'
                         ));
                         ?>
                         <button data-collapse-toggle="sp_menu_modal" type="button" class="menu_close_button" id="menu_close"

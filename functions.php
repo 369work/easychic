@@ -140,10 +140,10 @@ function easychic_credits()
 {
     echo '<span>';
     esc_html_e('Powered by ', 'easychic');
-    echo '</span><a class="credit-link" href="http://wordpress.org" target="_blank">WordPress</a><span>. </span>';
+    echo '</span><a class="credit-link" href="http://wordpress.org" target="_blank">' . esc_html__('WordPress', 'easychic') . '</a><span>. </span>';
     echo '<span>';
     esc_html_e('Easychic Theme by ', 'easychic');
-    echo '</span><a class="credit-link" href="https://profiles.wordpress.org/369work/">369work</a>.';
+    echo '</span><a class="credit-link" href="https://profiles.wordpress.org/369work/">' . esc_html__('369work', 'easychic') . '</a>.';
 
     return;
 }

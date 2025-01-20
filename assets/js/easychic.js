@@ -129,6 +129,88 @@ document.addEventListener("DOMContentLoaded", function () {
         closeMenu();
     });
 
+
+    //pc menu
+    const menuItems = document.querySelectorAll(".menu-item-has-children");
+
+    menuItems.forEach((item) => {
+        const link = item.querySelector("a");
+        const subMenu = item.querySelector(".sub-menu");
+        const subMenuLinks = subMenu ? subMenu.querySelectorAll("a") : [];
+
+        // Enter キーでサブメニューを開く
+        link.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleSubMenu(subMenu);
+            }
+            // 下矢印キーでサブメニューの最初の項目にフォーカス
+            if (e.key === "ArrowDown" && subMenu) {
+                e.preventDefault();
+                subMenu.style.opacity = "1";
+                subMenu.style.visibility = "visible";
+                subMenu.style.transform = "translateY(0)";
+                if (subMenuLinks.length > 0) {
+                    subMenuLinks[0].focus();
+                }
+            }
+        });
+
+        // サブメニュー内でのキーボードナビゲーション
+        if (subMenuLinks.length > 0) {
+            subMenuLinks.forEach((subLink, index) => {
+                subLink.addEventListener("keydown", (e) => {
+                    // 上矢印キー
+                    if (e.key === "ArrowUp") {
+                        e.preventDefault();
+                        if (index === 0) {
+                            link.focus();
+                        } else {
+                            subMenuLinks[index - 1].focus();
+                        }
+                    }
+                    // 下矢印キー
+                    if (e.key === "ArrowDown") {
+                        e.preventDefault();
+                        if (index < subMenuLinks.length - 1) {
+                            subMenuLinks[index + 1].focus();
+                        }
+                    }
+                    // Escキーでサブメニューを閉じて親メニューにフォーカス
+                    if (e.key === "Escape") {
+                        e.preventDefault();
+                        hideSubMenu(subMenu);
+                        link.focus();
+                    }
+                });
+            });
+        }
+    });
+
+    // サブメニューの表示/非表示を切り替える関数
+    function toggleSubMenu(subMenu) {
+        if (subMenu) {
+            if (subMenu.style.visibility === "visible") {
+                hideSubMenu(subMenu);
+            } else {
+                showSubMenu(subMenu);
+            }
+        }
+    }
+
+    function showSubMenu(subMenu) {
+        subMenu.style.opacity = "1";
+        subMenu.style.visibility = "visible";
+        subMenu.style.transform = "translateY(0)";
+    }
+
+    function hideSubMenu(subMenu) {
+        subMenu.style.opacity = "0";
+        subMenu.style.visibility = "hidden";
+        subMenu.style.transform = "translateY(-10px)";
+    }
+
+
     // Smooth scrolling of links within a page
     const pageLinks = document.querySelectorAll('a[href^="#"]');
 

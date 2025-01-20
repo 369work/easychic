@@ -17,62 +17,33 @@
     <div class="container">
         <div class="footer-wrap">
             <div class="footer-menu">
-                <!-- Follow Us -->
-                <div class="footer-list">
-                    <?php
-                    $menu_sns = 'footer-sns';
-                    $menu_locations = get_nav_menu_locations();
-                    if ($menu_locations[$menu_sns] !== 0) {
-                        $menu_sns_title = get_term($menu_locations[$menu_sns], 'nav_menu')->name;
-                    } else {
-                        $menu_sns_title = 'Follow Us';
-                    }
-                    ?>
-                    <h4 class="footer-title"><?php echo esc_html($menu_sns_title); ?></h4>
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'footer-sns',
-                        'menu_class'     => 'footer-sns-menu',
-                    ));
-                    ?>
-                </div>
+                <?php
+                $array_menu = [
+                    'footer-sns',
+                    'footer-left',
+                    'footer-right',
+                ];
+                ?>
 
-                <!-- Use cases -->
-                <div class="footer-list">
-                    <?php
-                    $menu_left = 'footer-left';
-                    $menu_locations = get_nav_menu_locations();
-                    if ($menu_locations[$menu_left] !== 0) {
-                        $menu_left_title = get_term($menu_locations[$menu_left], 'nav_menu')->name;
-                    ?>
-                        <h4 class="footer-title"><?php echo esc_html($menu_left_title); ?></h4>
-                    <?php
+                <?php foreach ($array_menu as $menu_name) : ?>
+                    <div class="footer-list">
+                        <?php
+                        $menu_locations = get_nav_menu_locations();
+                        if (isset($menu_locations[$menu_name]) && $menu_locations[$menu_name] !== 0) {
+                            $menu_title = get_term($menu_locations[$menu_name], 'nav_menu')->name;
+                        } else {
+                            $menu_title = 'Menu Title';
+                        }
+                        ?>
+                        <h4 class="footer-title"><?php echo esc_html($menu_title); ?></h4>
+                        <?php
                         wp_nav_menu(array(
-                            'theme_location' => 'footer-left',
-                            'menu_class'     => 'footer-menu-left',
+                            'theme_location' => $menu_name,
+                            'menu_class'     => $menu_name . '-menu',
                         ));
-                    }
-                    ?>
-                </div>
-
-                <!-- Resources -->
-                <div class="footer-list">
-                    <?php
-                    $menu_right = 'footer-right';
-                    if ($menu_locations[$menu_right] !== 0) {
-                        $menu_right_title = get_term($menu_locations[$menu_right], 'nav_menu')->name;
-                    } else {
-                        $menu_right_title = 'Right Link';
-                    }
-                    ?>
-                    <h4 class="footer-title"><?php echo esc_html($menu_right_title); ?></h4>
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'footer-right',
-                        'menu_class'     => 'footer-menu-right',
-                    ));
-                    ?>
-                </div>
+                        ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
 
             <div class="site-info">

@@ -19,6 +19,12 @@ add_action('admin_menu', 'easychic_add_admin_menu');
 // Display the theme options page
 function easychic_theme_description_page()
 {
+    $lang = get_bloginfo('language');
+    if ($lang == 'ja') {
+        $easychic_theme_uri = 'https://easychic.369work.net/index-ja.html';
+    } else {
+        $easychic_theme_uri = 'https://easychic.369work.net/';
+    }
 ?>
     <style>
         #wpwrap .admin-title {
@@ -126,7 +132,7 @@ function easychic_theme_description_page()
             <h2 class="admin-sub-title"><?php esc_html_e('Review the Easychic Theme', 'easychic'); ?></h2>
             <p><?php esc_html_e('Thank you for using the Easychic theme!', 'easychic'); ?></p>
             <p><?php esc_html_e('We would love to hear your feedback on the Easychic theme. Please take a moment to leave a review.', 'easychic'); ?></p>
-            <a href="https://wordpress.org/support/theme/easychic/reviews/" style="display: inline-block; margin: 1rem 0; padding: 10px 20px; background-color: #0073aa; color: #fff; text-decoration: none; border-radius: 5px; text-align: center;">
+            <a href="https://wordpress.org/support/theme/easychic/reviews/" target="_blank" style="display: inline-block; margin: 1rem 0; padding: 10px 20px; background-color: #0073aa; color: #fff; text-decoration: none; border-radius: 5px; text-align: center;">
                 <?php esc_html_e('Leave a Review', 'easychic'); ?>
             </a>
         </div>
@@ -134,7 +140,7 @@ function easychic_theme_description_page()
         <div class="content">
             <h2 class="admin-sub-title"><?php esc_html_e('Theme Support', 'easychic'); ?></h2>
             <p><?php esc_html_e('If you have any questions or need help with the Easychic theme, please visit the support page.', 'easychic'); ?></p>
-            <a href="https://wordpress.org/support/theme/easychic/" style="display: inline-block; margin: 1rem 0; padding: 10px 20px; background-color: #0073aa; color: #fff; text-decoration: none; border-radius: 5px; text-align: center;"><?php esc_html_e('Support', 'easychic'); ?></a>
+            <a href="<?php echo esc_url($easychic_theme_uri); ?>" target="_blank" style="display: inline-block; margin: 1rem 0; padding: 10px 20px; background-color: #0073aa; color: #fff; text-decoration: none; border-radius: 5px; text-align: center;"><?php esc_html_e('Support', 'easychic'); ?></a>
         </div>
 
         <div class="content-pro">
@@ -176,11 +182,14 @@ function easychic_theme_description_page()
                     <p class="bold"><?php esc_html_e('Main style', 'easychic'); ?></p>
                 </div>
                 <div style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
+                    <p class="bold"><?php esc_html_e('SEO Support', 'easychic'); ?></p>
+                </div>
+                <div style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
                     <p class="bold"><?php esc_html_e('Theme Support', 'easychic'); ?></p>
                 </div>
             </div>
             <a href="https://easychic.369work.net/" target="_blank" style="display: inline-block; margin: 1rem 0; padding: 10px 20px; background-color: #0073aa; color: #fff; text-decoration: none; border-radius: 5px; text-align: center;">
-                <?php esc_html_e('Upgrade', 'easychic'); ?>
+                <?php esc_html_e('Go to details page', 'easychic'); ?>
             </a>
 
         </div>

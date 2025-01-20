@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Easychic\n"
-"POT-Creation-Date: 2025-01-10 19:55+0900\n"
-"PO-Revision-Date: 2025-01-10 19:56+0900\n"
+"POT-Creation-Date: 2025-01-15 00:28+0900\n"
+"PO-Revision-Date: 2025-01-15 00:30+0900\n"
 "Last-Translator: \n"
 "Language-Team: 369work\n"
 "Language: ja\n"
@@ -23,15 +23,15 @@ msgstr "お探しのページは見つかりませんでした"
 msgid "Sorry, we could not find the page you were looking for."
 msgstr "お探しのページは見つかりませんでした。"
 
-#: archive.php:40 front-page.php:33 index.php:28
-#, php-format
-msgid "%s Older"
-msgstr "%s 古い記事"
+#: archive.php:40 front-page.php:33 index.php:30
+#: template-parts/pagination.php:11
+msgid "&laquo; Previous Page"
+msgstr "&laquo; 前のページ"
 
-#: archive.php:41 front-page.php:34 index.php:29
-#, php-format
-msgid "Newer %s"
-msgstr "%s 新しい記事"
+#: archive.php:41 front-page.php:34 index.php:31
+#: template-parts/pagination.php:28
+msgid "Next Page &raquo;"
+msgstr "次のページ &raquo;"
 
 #: comments.php:28
 #, php-format
@@ -53,10 +53,6 @@ msgstr "最新のコメント &rarr;"
 #: comments.php:61
 msgid "Comments are closed."
 msgstr "コメントはクローズされました."
-
-#: footer.php:23
-msgid "Follow Us"
-msgstr "Follow Us"
 
 #: functions.php:100
 msgid "Sidebar"
@@ -90,35 +86,43 @@ msgstr "コンテンツにスキップ"
 msgid "Powered by "
 msgstr "Powered by "
 
+#: functions.php:143
+msgid "WordPress"
+msgstr "WordPress"
+
 #: functions.php:145
 msgid "Easychic Theme by "
 msgstr "Easychic Theme by "
 
-#: header.php:75
+#: functions.php:146
+msgid "369work"
+msgstr "369work"
+
+#: header.php:67
 msgid "Open Menu"
 msgstr "メニューを開く"
 
-#: header.php:108
+#: header.php:100
 msgid "Close Menu"
 msgstr "メニューを閉じる"
 
-#: inc/add_functions.php:75
+#: inc/add_functions.php:81
 msgid "Easychic Theme Options"
 msgstr "Easychic テーマオプション"
 
-#: inc/add_functions.php:77 inc/add_functions.php:127
+#: inc/add_functions.php:83 inc/add_functions.php:133
 msgid "Thank you for using the Easychic theme!"
 msgstr "Easychic テーマをご利用いただきありがとうございます！"
 
-#: inc/add_functions.php:78
+#: inc/add_functions.php:84
 msgid "Here you can customize the Easychic theme."
 msgstr "ここで Easychic テーマをカスタマイズできます。"
 
-#: inc/add_functions.php:82
+#: inc/add_functions.php:88
 msgid "Getting Started"
 msgstr "はじめましょう"
 
-#: inc/add_functions.php:83
+#: inc/add_functions.php:89
 msgid ""
 "To get started with the Easychic theme, you can customize the theme using "
 "the Customizer."
@@ -126,15 +130,15 @@ msgstr ""
 "Easychic テーマを使い始めるには、カスタマイザーを使用してテーマをカスタマイズ"
 "します。"
 
-#: inc/add_functions.php:84 inc/add_functions.php:120
+#: inc/add_functions.php:90 inc/add_functions.php:126
 msgid "Customize"
 msgstr "カスタマイズ"
 
-#: inc/add_functions.php:89
+#: inc/add_functions.php:95
 msgid "Basic usage of Easychic theme"
 msgstr "Easychicテーマの基本的な使い方"
 
-#: inc/add_functions.php:90
+#: inc/add_functions.php:96
 msgid ""
 "The Customizer allows you to easily customize the look of your site. You can "
 "customize the following elements:"
@@ -142,43 +146,43 @@ msgstr ""
 "カスタマイザーを使用すると、サイトの外観を簡単にカスタマイズできます。次の要"
 "素をカスタマイズできます："
 
-#: inc/add_functions.php:94 inc/add_functions.php:146
+#: inc/add_functions.php:100 inc/add_functions.php:152
 msgid "Font selection"
 msgstr "フォントの選択"
 
-#: inc/add_functions.php:97
+#: inc/add_functions.php:103
 msgid "Site style"
 msgstr "サイトのスタイル"
 
-#: inc/add_functions.php:100 inc/add_functions.php:149
+#: inc/add_functions.php:106 inc/add_functions.php:155
 msgid "Custom logo"
 msgstr "ロゴの設定"
 
-#: inc/add_functions.php:103 inc/add_functions.php:152
+#: inc/add_functions.php:109 inc/add_functions.php:158
 msgid "Custom background Color"
 msgstr "ボディ背景色の設定"
 
-#: inc/add_functions.php:106 inc/add_functions.php:155
+#: inc/add_functions.php:112 inc/add_functions.php:161
 msgid "Custom background"
 msgstr "ボディ背景画像の設定"
 
-#: inc/add_functions.php:109 inc/add_functions.php:158
+#: inc/add_functions.php:115 inc/add_functions.php:164
 msgid "Menu placement"
 msgstr "メニューの位置"
 
-#: inc/add_functions.php:112 inc/add_functions.php:161
+#: inc/add_functions.php:118 inc/add_functions.php:167
 msgid "Sidebar and layout"
 msgstr "サイドバーとレイアウト"
 
-#: inc/add_functions.php:115 inc/add_functions.php:164
+#: inc/add_functions.php:121 inc/add_functions.php:170
 msgid "Sidebar Widget"
 msgstr "サイドバーのウィジェット"
 
-#: inc/add_functions.php:126
+#: inc/add_functions.php:132
 msgid "Review the Easychic Theme"
 msgstr "Easychicテーマをレビューする"
 
-#: inc/add_functions.php:128
+#: inc/add_functions.php:134
 msgid ""
 "We would love to hear your feedback on the Easychic theme. Please take a "
 "moment to leave a review."
@@ -186,15 +190,15 @@ msgstr ""
 "Easychic テーマに関するご意見をお待ちしております。ぜひレビューをお寄せくださ"
 "い。"
 
-#: inc/add_functions.php:130
+#: inc/add_functions.php:136
 msgid "Leave a Review"
 msgstr "レビューする"
 
-#: inc/add_functions.php:135 inc/add_functions.php:179
+#: inc/add_functions.php:141 inc/add_functions.php:188
 msgid "Theme Support"
 msgstr "テーマのサポート"
 
-#: inc/add_functions.php:136
+#: inc/add_functions.php:142
 msgid ""
 "If you have any questions or need help with the Easychic theme, please visit "
 "the support page."
@@ -202,39 +206,43 @@ msgstr ""
 "Easychic テーマに関してご質問やサポートが必要な場合は、サポート ページをご覧"
 "ください。"
 
-#: inc/add_functions.php:137
+#: inc/add_functions.php:143
 msgid "Support"
 msgstr "サポート"
 
-#: inc/add_functions.php:141
+#: inc/add_functions.php:147
 msgid "When you upgrade to Pro you can:"
 msgstr "Pro にアップグレードすると、次のことが可能になります :"
 
-#: inc/add_functions.php:142
+#: inc/add_functions.php:148
 msgid "Upgrading to Pro gives you even more customization and faster support."
 msgstr ""
 "Pro にアップグレードすると、さらにカスタマイズが強化され、サポートも迅速にな"
 "ります。"
 
-#: inc/add_functions.php:167
+#: inc/add_functions.php:173
 msgid "Header style"
 msgstr "ヘッダースタイル"
 
-#: inc/add_functions.php:170
+#: inc/add_functions.php:176
 msgid "Footer style"
 msgstr "フッタースタイル"
 
-#: inc/add_functions.php:173
+#: inc/add_functions.php:179
 msgid "Sidebar style"
 msgstr "サイドバースタイル"
 
-#: inc/add_functions.php:176
+#: inc/add_functions.php:182
 msgid "Main style"
 msgstr "メインスタイル"
 
-#: inc/add_functions.php:183
-msgid "Upgrade"
-msgstr "アップグレードする"
+#: inc/add_functions.php:185
+msgid "SEO Support"
+msgstr "SEO対策"
+
+#: inc/add_functions.php:192
+msgid "Go to details page"
+msgstr "詳細ページにいく"
 
 #: inc/customizer.php:9
 msgid "EasyChic Settings"
@@ -252,7 +260,7 @@ msgstr "EasyChic ページレイアウト"
 msgid "One Column Sidebar None"
 msgstr "1カラムサイドバーなし"
 
-#: inc/customizer.php:33 inc/customizer.php:200
+#: inc/customizer.php:33 inc/customizer.php:198
 msgid "One Column Sidebar bottom"
 msgstr "1カラムサイドバー下"
 
@@ -268,39 +276,39 @@ msgstr "EasyChic フォント選択"
 msgid "EasyChic Font Setting"
 msgstr "EasyChic フォント設定"
 
-#: inc/customizer.php:87
+#: inc/customizer.php:85
 msgid "Select the font for your site."
 msgstr "サイトのフォントを選択してください。"
 
-#: inc/customizer.php:98
+#: inc/customizer.php:96
 msgid "Header CTA Button Text"
 msgstr "ヘッダーCTAボタンのテキスト"
 
-#: inc/customizer.php:111
+#: inc/customizer.php:109
 msgid "Header CTA Button URL"
 msgstr "ヘッダーCTAボタンのリンク先"
 
-#: inc/customizer.php:124
+#: inc/customizer.php:122
 msgid "Header CTA Button Background Color"
 msgstr "ヘッダーCTAボタンの背景色"
 
-#: inc/customizer.php:136
+#: inc/customizer.php:134
 msgid "Header CTA Button Text Color"
 msgstr "ヘッダーCTAボタンのテキスト色"
 
-#: inc/customizer.php:171
+#: inc/customizer.php:169
 msgid "Site Style Select"
 msgstr "サイトスタイルの選択"
 
-#: inc/customizer.php:184
+#: inc/customizer.php:182
 msgid "Select Image"
 msgstr "イメージの選択"
 
-#: inc/customizer.php:201
+#: inc/customizer.php:199
 msgid "One Column Sidebar none"
 msgstr "1カラムサイトバーなし"
 
-#: inc/customizer.php:202
+#: inc/customizer.php:200
 msgid "Two Columns Sidebar right"
 msgstr "2カラムサイトバー右"
 
@@ -393,13 +401,19 @@ msgstr "ページ"
 msgid "Page %"
 msgstr "ページ %"
 
-#: template-parts/pagination.php:11
-msgid "&laquo; Previous Page"
-msgstr "&laquo; 前のページ"
+#, php-format
+#~ msgid "%s Older"
+#~ msgstr "%s 古い記事"
 
-#: template-parts/pagination.php:28
-msgid "Next Page &raquo;"
-msgstr "次のページ &raquo;"
+#, php-format
+#~ msgid "Newer %s"
+#~ msgstr "%s 新しい記事"
+
+#~ msgid "Follow Us"
+#~ msgstr "Follow Us"
+
+#~ msgid "Upgrade"
+#~ msgstr "アップグレードする"
 
 #~ msgid "Noto Sans JP"
 #~ msgstr "Noto Sans JP"

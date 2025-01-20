@@ -4,7 +4,7 @@ Author: 369work
 Author URI: https://profiles.wordpress.org/369work/
 Description: Easychic is A chic and easy-to-use WordPress theme.
 Theme URI: https://easychic.369work.net/
-Version: 1.0
+Version: 1.2
 Requires at least: 6.6
 Tested up to: 6.7
 Requires PHP: 8.1
@@ -34,22 +34,6 @@ Include Fonts
     font-weight: 700;
     font-display: swap;
     src: url('./assets/fonts/Noto_Serif_JP/NotoSerifJP-subset-Regular.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'M PLUS Rounded 1c';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('./assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-subset-Regular.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Shippori Mincho';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url('./assets/fonts/Shippori_Mincho/ShipporiMincho-subset-Regular.woff2') format('woff2');
 }
 
 /*------------------------------------*\
@@ -528,27 +512,91 @@ ul.sp_menu ul.children li:last-child {
     color: var(--color-text);
 }
 
-ul.pc_menu {
+.pc_menu {
     display: none;
 }
 
 @media (min-width: 1024px) {
-    ul.pc_menu {
-        display: flex;
-        font-size: 1rem;
-    }
 
-    ul.pc_menu {
+    .pc_menu {
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem;
+        font-size: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 
     .pc_menu li a {
         display: block;
-        transition: all 0.3s;
+        padding: 0.5rem 0;
+        color: #333;
         text-decoration: none;
+        position: relative;
+        transition: color 0.3s ease;
     }
+
+    .pc_menu li a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-link-focus);
+        transition: width 0.3s ease;
+    }
+
+    .pc_menu li a:hover {
+        color: var(--color-link-focus);
+    }
+
+    .pc_menu li a:hover::after {
+        width: 100%;
+    }
+
+    .pc_menu li a:focus {
+        outline: 2px solid var(--color-link-focus);
+        outline-offset: 2px;
+        color: var(--color-link-focus);
+    }
+
+    .pc_menu li a:focus::after {
+        width: 100%;
+    }
+
+    .pc_menu .sub-menu li a {
+        padding: .5rem;
+    }
+
+    .pc_menu .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--color-background);
+        min-width: 200px;
+        padding: .5rem 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        list-style: none;
+    }
+
+    .menu-item-has-children {
+        position: relative;
+    }
+
+    .menu-item-has-children:hover .sub-menu,
+    .menu-item-has-children:focus-within .sub-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
 }
 
 .skip-link {

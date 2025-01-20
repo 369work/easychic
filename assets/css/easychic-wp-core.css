@@ -476,7 +476,9 @@ input::placeholder {
 .nav-previous,
 .nav-next,
 .previous-post-link,
-.next-post-link {
+.next-post-link,
+.previous,
+.next {
     display: flex;
     gap: 1rem;
     color: var(--color-text);

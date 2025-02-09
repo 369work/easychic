@@ -309,6 +309,10 @@ h2.entry-title {
     gap: .5rem;
 }
 
+.site-aside footer {
+    color: var(--color-link);
+}
+
 .entry-footer a {
     color: var(--color-link);
 }

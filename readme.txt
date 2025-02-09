@@ -7,7 +7,7 @@ Requires PHP: 8.1
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, portfolio, one-column, right-sidebar, custom-logo, custom-menu, editor-style, featured-images, full-width-template, theme-options
-Stable tag: 1.3
+Stable tag: 1.4
 
 A modern and elegant multipurpose WordPress theme.
 
@@ -56,6 +56,9 @@ Yes, you can use it commercially under the GNU GPL v3.0 license.
 
 = 1.3 =
 * Change Scripts
+
+= 1.4 =
+* Change CSS
 
 == Upgrade Notice ==
 = 1.0 =

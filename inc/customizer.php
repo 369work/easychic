@@ -238,7 +238,7 @@ function easychic_sidebar_layout()
 function easychic_header_cta_button()
 {
     ?>
-    <a href="<?php echo esc_url(get_theme_mod('easychic_header_cta_url', 'https://www.example.com')); ?>" class="header_cta_link"><?php echo esc_html(get_theme_mod('easychic_header_cta_text', 'Contact')); ?></a>
+    <a href="<?php echo esc_url(get_theme_mod('easychic_header_cta_url', 'https://wordpress.org/themes/')); ?>" class="header_cta_link"><?php echo esc_html(get_theme_mod('easychic_header_cta_text', 'Contact')); ?></a>
 <?php
 }
 

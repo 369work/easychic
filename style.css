@@ -4,10 +4,10 @@ Author: 369work
 Author URI: https://profiles.wordpress.org/369work/
 Description: Easychic is A chic and easy-to-use WordPress theme.
 Theme URI: https://easychic.369work.net/
-Version: 1.4
+Version: 1.5
 Requires at least: 6.6
-Tested up to: 6.7
-Requires PHP: 8.1
+Tested up to: 6.8
+Requires PHP: 8.2
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, portfolio, one-column, right-sidebar, custom-logo, custom-menu, editor-style, featured-images, full-width-template, theme-options
@@ -306,7 +306,7 @@ main {
     width: 100%;
     padding: 2rem 0;
     background-color: #fff;
-    min-height: calc(100vh - 400px);
+    min-height: calc(100vh - 300px);
 }
 
 aside {

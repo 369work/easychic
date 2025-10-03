@@ -41,6 +41,13 @@
     font-weight: 400;
 }
 
+.site-branding img.custom-logo {
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-left: 0;
+}
+
 @media (min-width: 1024px) {
     .site-branding {
         min-width: 250px;

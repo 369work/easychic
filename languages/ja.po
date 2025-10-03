@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Easychic\n"
-"POT-Creation-Date: 2025-01-15 00:28+0900\n"
-"PO-Revision-Date: 2025-01-15 00:30+0900\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2025-07-17 15:48+0900\n"
+"PO-Revision-Date: 2025-07-17 15:49+0900\n"
+"Last-Translator: 369work\n"
 "Language-Team: 369work\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -14,6 +14,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n;_nx;esc_html_e;esc_attr_e;esc_html__;"
 "esc_attr__\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
 
 #: 404.php:22
 msgid "Page not found"
@@ -98,11 +99,11 @@ msgstr "Easychic Theme by "
 msgid "369work"
 msgstr "369work"
 
-#: header.php:67
+#: header.php:62
 msgid "Open Menu"
 msgstr "メニューを開く"
 
-#: header.php:100
+#: header.php:82
 msgid "Close Menu"
 msgstr "メニューを閉じる"
 
@@ -260,7 +261,7 @@ msgstr "EasyChic ページレイアウト"
 msgid "One Column Sidebar None"
 msgstr "1カラムサイドバーなし"
 
-#: inc/customizer.php:33 inc/customizer.php:198
+#: inc/customizer.php:33 inc/customizer.php:204
 msgid "One Column Sidebar bottom"
 msgstr "1カラムサイドバー下"
 
@@ -280,35 +281,39 @@ msgstr "EasyChic フォント設定"
 msgid "Select the font for your site."
 msgstr "サイトのフォントを選択してください。"
 
-#: inc/customizer.php:96
+#: inc/customizer.php:89
+msgid "EasyChic Header Button Settings"
+msgstr "EasyChic ヘッダーボタン設定"
+
+#: inc/customizer.php:102
 msgid "Header CTA Button Text"
 msgstr "ヘッダーCTAボタンのテキスト"
 
-#: inc/customizer.php:109
+#: inc/customizer.php:115
 msgid "Header CTA Button URL"
 msgstr "ヘッダーCTAボタンのリンク先"
 
-#: inc/customizer.php:122
+#: inc/customizer.php:128
 msgid "Header CTA Button Background Color"
 msgstr "ヘッダーCTAボタンの背景色"
 
-#: inc/customizer.php:134
+#: inc/customizer.php:140
 msgid "Header CTA Button Text Color"
 msgstr "ヘッダーCTAボタンのテキスト色"
 
-#: inc/customizer.php:169
+#: inc/customizer.php:175
 msgid "Site Style Select"
 msgstr "サイトスタイルの選択"
 
-#: inc/customizer.php:182
+#: inc/customizer.php:188
 msgid "Select Image"
 msgstr "イメージの選択"
 
-#: inc/customizer.php:199
+#: inc/customizer.php:205
 msgid "One Column Sidebar none"
 msgstr "1カラムサイトバーなし"
 
-#: inc/customizer.php:200
+#: inc/customizer.php:206
 msgid "Two Columns Sidebar right"
 msgstr "2カラムサイトバー右"
 
@@ -323,7 +328,7 @@ msgstr "%s を公開"
 
 #: page.php:70 template-parts/content-single.php:78
 msgid "Posted by "
-msgstr "投稿者："
+msgstr "投稿者　"
 
 #: page.php:79 template-parts/content-single.php:87
 #, php-format
@@ -429,9 +434,6 @@ msgstr "ページ %"
 
 #~ msgid "Widget placement"
 #~ msgstr "ウィジェットの位置"
-
-#~ msgid "EasyChic Header Setting"
-#~ msgstr "EasyChic ヘッダー設定"
 
 #~ msgid "Header Background Color"
 #~ msgstr "ヘッダー背景色"

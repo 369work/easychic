@@ -85,6 +85,12 @@ function easychic_customize_register($wp_customize)
         'description' => esc_html__('Select the font for your site.', 'easychic'),
     )));
 
+    $wp_customize->add_section('easychic_header_section', array(
+        'title' => esc_html__('EasyChic Header Button Settings', 'easychic'),
+        'priority' => 2,
+        'panel' => 'easychic_setting',
+    ));
+
     // Header CTA Button Text
     $wp_customize->add_setting('easychic_header_cta_text', array(
         'default' => 'Contact',
@@ -238,7 +244,7 @@ function easychic_sidebar_layout()
 function easychic_header_cta_button()
 {
     ?>
-    <a href="<?php echo esc_url(get_theme_mod('easychic_header_cta_url', 'https://wordpress.org/themes/')); ?>" class="header_cta_link"><?php echo esc_html(get_theme_mod('easychic_header_cta_text', 'Contact')); ?></a>
+    <a href="<?php echo esc_url(get_theme_mod('easychic_header_cta_url', '#contact')); ?>" class="header_cta_link"><?php echo esc_html(get_theme_mod('easychic_header_cta_text', 'Contact')); ?></a>
 <?php
 }
 
@@ -357,6 +363,12 @@ function easychic_customizer_style_css()
     if (isset($style['sidebar'])) {
         $custom_css .= 'aside { background-color: ' . esc_attr($style['sidebar']['background-color']) . '; color: ' . esc_attr($style['sidebar']['text-color']) . '; }' . "\n";
     }
+
+    // header CTA button styles
+    $cta_bg_color = get_theme_mod('easychic_header_cta_bg_color', '#1E293B');
+    $cta_text_color = get_theme_mod('easychic_header_cta_text_color', '#ffffff');
+    $custom_css .= '.header_cta_link { background-color: ' . esc_attr($cta_bg_color) . '; color: ' . esc_attr($cta_text_color) . '; }' . "\n";
+
     wp_register_style('theme-style-handle', false);
     wp_enqueue_style('theme-style-handle');
     wp_add_inline_style('theme-style-handle', $custom_css);

@@ -1,7 +1,7 @@
 <?php
 /*
 Template Name: Page
-Template Post Type: post, page, event
+Template Post Type: post, page
 
  * The template for displaying full-width pages.
  * @package EasyChic
@@ -15,6 +15,7 @@ Template Post Type: post, page, event
 <div id="content" class="site-content">
     <main id="main" class="site-main" role="main">
         <div class="container">
+            <?php easychic_breadcrumb(); ?>
             <section class="content-area">
                 <?php
                 if (have_posts()) :

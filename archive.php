@@ -16,6 +16,7 @@
 <div id="content" class="site-content">
     <main id="main" class="site-main" role="main">
         <div class="container">
+            <?php easychic_breadcrumb(); ?>
             <section class="content-area">
                 <?php the_archive_title('<h1 class="page-title">', '</h1>'); ?>
                 <p class="page-description">
@@ -37,8 +38,10 @@
                     </div>
                     <div class="navigation">
                         <div class="previous">
-                            <?php esc_html_e(previous_posts_link(__('&laquo; Previous Page', 'easychic')), 'easychic'); ?></div>
-                        <div class="next"><?php esc_html_e(next_posts_link(__('Next Page &raquo;', 'easychic')), 'easychic'); ?>
+                            <?php previous_posts_link(esc_html__('&laquo; Previous Page', 'easychic')); ?>
+                        </div>
+                        <div class="next">
+                            <?php next_posts_link(esc_html__('Next Page &raquo;', 'easychic')); ?>
                         </div>
                     </div>
                 <?php

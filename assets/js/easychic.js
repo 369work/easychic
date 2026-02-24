@@ -121,60 +121,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // PCメニューの管理
     function setupDesktopMenu() {
-        const menuItems = document.querySelectorAll(".menu-item-has-children");
+        const menuItems = document.querySelectorAll(
+            ".pc_menu .menu-item-has-children"
+        );
 
         menuItems.forEach((menuItem) => {
-            const mainLink = menuItem.querySelector("a");
-            const subMenu = menuItem.querySelector(".sub-menu");
+            const mainLink = menuItem.querySelector(":scope > a");
+            const subMenu = menuItem.querySelector(":scope > .sub-menu");
 
             if (mainLink && subMenu) {
-                let isSubMenuVisible = false;
-
                 mainLink.addEventListener("keydown", (event) => {
-                    // Tab時の処理
                     if (!event.shiftKey && event.key === "Tab") {
-                        // サブメニューが非表示の場合は表示する
-                        if (!isSubMenuVisible) {
+                        const firstSubLink = subMenu.querySelector("li a");
+                        if (firstSubLink) {
                             event.preventDefault();
-                            subMenu.style.display = "block";
-                            isSubMenuVisible = true;
-
-                            // サブメニューの最初のリンクにフォーカスする
-                            const firstSubLink = subMenu.querySelector("li a");
-                            if (firstSubLink) {
-                                firstSubLink.focus();
-                            }
+                            firstSubLink.focus();
                         }
                     }
                 });
 
-                // Shift+Tab時の処理
                 menuItem.addEventListener("keydown", (event) => {
                     if (event.shiftKey && event.key === "Tab") {
-                        // サブメニューが非表示の場合は表示する
-                        if (!isSubMenuVisible) {
-                            event.preventDefault();
-                            subMenu.style.display = "block";
-                            isSubMenuVisible = true;
-
-                            // サブメニューの最後のリンクにフォーカスする
-                            const lastSubLink =
-                                subMenu.querySelector("li:last-child a");
-                            const firstSubLink = subMenu.querySelector("li a");
-                            if (lastSubLink) {
-                                lastSubLink.focus();
-                            } else if (firstSubLink) {
-                                firstSubLink.focus();
-                            }
+                        if (
+                            document.activeElement === mainLink ||
+                            !menuItem.contains(event.target)
+                        ) {
+                            return;
                         }
-                    }
-                });
-
-                // フォーカスが外れた時にサブメニューを非表示にする
-                menuItem.addEventListener("focusout", (event) => {
-                    if (!menuItem.contains(event.relatedTarget)) {
-                        subMenu.style.display = "none";
-                        isSubMenuVisible = false;
+                        const subLinks = subMenu.querySelectorAll("a");
+                        if (
+                            subLinks.length &&
+                            document.activeElement === subLinks[0]
+                        ) {
+                            event.preventDefault();
+                            mainLink.focus();
+                        }
                     }
                 });
             }

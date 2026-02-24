@@ -206,18 +206,18 @@ function easychic_title_separator()
 add_filter('document_title_separator', 'easychic_title_separator');
 
 // Determine the layout within the template
-function get_current_layout()
+function easychic_get_current_layout()
 {
-    return get_theme_mod('page_layout', 'two-column');
+    return get_theme_mod('easychic_page_layout', 'two-columns');
 }
 
 // Check if the sidebar is enabled for the current template
-function is_sidebar_enabled()
+function easychic_is_sidebar_enabled()
 {
     if (is_front_page()) {
-        return false; // Front page is always 1 column
+        return false;
     }
 
-    $layout = get_current_layout();
-    return $layout !== 'one-column';
+    $layout = easychic_get_current_layout();
+    return $layout !== 'one-column-none';
 }

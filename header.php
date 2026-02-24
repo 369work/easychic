@@ -37,7 +37,7 @@
                             $description = get_bloginfo('description', 'display');
                             if ($description || is_customize_preview()) :
                             ?>
-                                <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+                                <p class="site-description"><?php echo esc_html($description); ?></p>
                             <?php endif; ?>
                         <?php } ?>
                     </div><!-- .site-branding -->
@@ -63,8 +63,8 @@
                         </button>
                     </nav><!-- #site-navigation -->
                 </div>
-                <div class="sp_menu_modal" id="sp_menu_modal" aria-hidden="true">
-                    <div class="modal_content" role="dialog" aria-label="Mobile Menu">
+                <div class="sp_menu_modal" id="sp_menu_modal" aria-hidden="true" inert>
+                    <div class="modal_content" role="dialog" aria-label="<?php esc_attr_e('Mobile Menu', 'easychic'); ?>">
                         <!-- first focusable element -->
                         <div tabindex="0" class="focus-trap-start"></div>
 

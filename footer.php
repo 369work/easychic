@@ -9,6 +9,7 @@
  * @subpackage EasyChic
  * @since EasyChic 1.0
  */
+
 ?>
 
 <div id="page-top" class="page-top"><a href="#"><span>TOP</span></a></div>
@@ -16,6 +17,26 @@
 <footer id="footer" class="site-footer">
     <div class="container">
         <div class="footer-wrap">
+            <?php if (is_active_sidebar('footer-widget-1') || is_active_sidebar('footer-widget-2') || is_active_sidebar('footer-widget-3')) : ?>
+            <div class="footer-widgets">
+                <?php if (is_active_sidebar('footer-widget-1')) : ?>
+                <div class="footer-widget-area">
+                    <?php dynamic_sidebar('footer-widget-1'); ?>
+                </div>
+                <?php endif; ?>
+                <?php if (is_active_sidebar('footer-widget-2')) : ?>
+                <div class="footer-widget-area">
+                    <?php dynamic_sidebar('footer-widget-2'); ?>
+                </div>
+                <?php endif; ?>
+                <?php if (is_active_sidebar('footer-widget-3')) : ?>
+                <div class="footer-widget-area">
+                    <?php dynamic_sidebar('footer-widget-3'); ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+
             <div class="footer-menu">
                 <?php
                 $array_menu = [
@@ -32,7 +53,7 @@
                         if (isset($menu_locations[$menu_name]) && $menu_locations[$menu_name] !== 0) {
                             $menu_title = get_term($menu_locations[$menu_name], 'nav_menu')->name;
                         } else {
-                            $menu_title = 'Menu Title';
+                            $menu_title = esc_html__('Menu Title', 'easychic');
                         }
                         ?>
                         <h4 class="footer-title"><?php echo esc_html($menu_title); ?></h4>
@@ -47,8 +68,8 @@
             </div>
 
             <div class="site-info">
-                <p>&copy; <?php echo Date("Y"); ?>
-                    <a href=" <?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+                <p>&copy; <?php echo esc_html(wp_date('Y')); ?>
+                    <a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
                 </p>
                 <p><?php easychic_credits(); ?></p>
 

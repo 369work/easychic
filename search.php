@@ -9,12 +9,12 @@
  */
 ?>
 
-<?php
-get_header(); ?>
+<?php get_header(); ?>
 
 <div id="content" class="site-content">
     <main id="main" class="site-main" role="main">
         <div class="container">
+            <?php easychic_breadcrumb(); ?>
             <section class="content-area">
                 <?php if (have_posts()) : ?>
                     <?php
@@ -22,37 +22,34 @@ get_header(); ?>
                     ?>
                     <div class="page-header">
                         <h1 class="page-title">
-                            <?php printf(esc_html__('Search Results for: %s (%s count)', 'easychic'), '<span>' . get_search_query() . '</span>', $total_results); ?>
+                            <?php
+                            printf(
+                                /* translators: 1: Search query, 2: Number of results */
+                                esc_html__('Search Results for: %1$s (%2$s count)', 'easychic'),
+                                '<span>' . esc_html(get_search_query()) . '</span>',
+                                absint($total_results)
+                            );
+                            ?>
                         </h1>
                     </div><!-- .page-header -->
 
                 <?php
-                    // Start the loop.
                     while (have_posts()) :
                         the_post();
-                        /**
-                         * Run the loop for the search to output the results.
-                         * If you want to overload this in a child theme then include a file
-                         * called content-search.php and that will be used instead.
-                         */
-                        get_template_part('template-parts/content', 'search');
-
-                    // End the loop.
+                        get_template_part('template-parts/content');
                     endwhile;
 
-                    // Previous/next page navigation.
                     the_posts_navigation();
 
-                // If no content, include the "No posts found" template.
                 else :
                     get_template_part('template-parts/content', 'none');
 
                 endif;
                 ?>
             </section>
-        </div> <!-- .container -->
-    </main><!-- .site-main -->
-</div><!-- .content-area -->
+        </div>
+    </main>
+    <?php get_sidebar(); ?>
+</div><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -20,8 +20,8 @@ if (! defined('ABSPATH')) {
     <div class="front-thumbnail">
         <?php if (has_post_thumbnail()) : ?>
             <a href="<?php echo esc_url(get_permalink()); ?>"><?php the_post_thumbnail(); ?></a>
-        <?php else: ?>
-            <a href="<?php echo esc_url(get_permalink()); ?>"><img src="<?php echo EASYCHIC_THEME_IMAGE . '/no-image.webp'; ?>" alt="<?php the_title(); ?>"></a>
+        <?php else : ?>
+            <a href="<?php echo esc_url(get_permalink()); ?>"><img src="<?php echo esc_url(EASYCHIC_THEME_IMAGE . '/no-image.webp'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>"></a>
         <?php endif; ?>
     </div>
 
@@ -31,7 +31,12 @@ if (! defined('ABSPATH')) {
 
     <div class="front-meta">
         <?php
-        echo '<span class="posted-on">' . get_the_date() . '</span>';
+        $categories = get_the_category();
+        if (! empty($categories)) :
+            $category = $categories[0];
         ?>
+            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="front-category"><?php echo esc_html($category->name); ?></a>
+        <?php endif; ?>
+        <time class="posted-on" datetime="<?php echo esc_attr(get_the_date(DATE_W3C)); ?>"><?php echo esc_html(get_the_date()); ?></time>
     </div>
 </article><!-- #post-<?php the_ID(); ?> -->

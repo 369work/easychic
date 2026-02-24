@@ -19,6 +19,7 @@
 <div id="content" class="site-content">
     <main id="main" class="site-main" role="main">
         <div class="container">
+            <?php easychic_breadcrumb(); ?>
             <section class="content-area">
                 <?php
                 if (have_posts()) :
@@ -30,7 +31,7 @@
                             the_post_navigation(
                                 array(
                                     /* translators: %s: Parent post link. */
-                                    'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'easychic' ), '%title' ),
+                                    'prev_text' => sprintf( wp_kses( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'easychic' ), array('span' => array('class' => array())) ), '%title' ),
                                 )
                             );
                         }

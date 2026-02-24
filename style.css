@@ -4,13 +4,13 @@ Author: Miroku
 Author URI: https://profiles.wordpress.org/369work/
 Description: Easychic is A chic and easy-to-use WordPress theme.
 Theme URI: https://easychic.369work.net/
-Version: 2.0
+Version: 2.1
 Requires at least: 6.6
 Tested up to: 6.9
-Requires PHP: 8.2
+Requires PHP: 8.1
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: blog, portfolio, one-column, right-sidebar, custom-logo, custom-menu, editor-style, featured-images, full-width-template, theme-options
+Tags: blog, portfolio, one-column, right-sidebar, custom-logo, custom-menu, custom-colors, editor-style, featured-images, full-width-template, theme-options, translation-ready, threaded-comments, wide-blocks
 Text Domain: easychic
 Domain Path: /languages
 
@@ -563,34 +563,101 @@ ul.sp_menu ul.children li:last-child {
     }
 
     .pc_menu .sub-menu li a {
-        padding: .5rem;
+        padding: 0.5rem 0.75rem;
     }
 
-    .pc_menu .sub-menu {
+    /* --- レベル2: ドロップダウンBOX --- */
+    .pc_menu > .menu-item-has-children {
+        position: relative;
+    }
+
+    .pc_menu > .menu-item-has-children > .sub-menu {
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: var(--color-background);
-        min-width: 200px;
-        padding: .5rem 0;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        min-width: 240px;
+        padding: 0.5rem 0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        border: 1px solid rgba(203, 213, 225, 0.5);
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
         z-index: 1000;
         list-style: none;
     }
 
-    .menu-item-has-children {
-        position: relative;
-    }
-
-    .menu-item-has-children:hover .sub-menu,
-    .menu-item-has-children:focus-within .sub-menu {
+    .pc_menu > .menu-item-has-children:hover > .sub-menu,
+    .pc_menu > .menu-item-has-children:focus-within > .sub-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
+    }
+
+    /* --- レベル3（孫）: アコーディオン展開 --- */
+    .pc_menu .sub-menu .sub-menu {
+        position: static;
+        background-color: transparent;
+        min-width: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: max-height 0.3s ease;
+    }
+
+    .pc_menu .sub-menu .menu-item-has-children:hover > .sub-menu,
+    .pc_menu .sub-menu .menu-item-has-children:focus-within > .sub-menu {
+        max-height: 500px;
+    }
+
+    .pc_menu .sub-menu .sub-menu li a {
+        padding: 0.4rem 0.75rem 0.4rem 1.5rem;
+        font-size: 0.9em;
+        color: var(--color-text);
+        border-left: 2px solid var(--color-border);
+    }
+
+    .pc_menu .sub-menu .sub-menu li a:hover {
+        color: var(--color-link-focus);
+        border-left-color: var(--color-link-focus);
+    }
+
+    /* 子 → 孫がある項目の矢印インジケーター */
+    .pc_menu .sub-menu .menu-item-has-children > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .pc_menu .sub-menu .menu-item-has-children > a::after {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-right: 1.5px solid var(--color-text);
+        border-bottom: 1.5px solid var(--color-text);
+        transform: rotate(45deg);
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+
+    .pc_menu .sub-menu .menu-item-has-children:hover > a::after {
+        transform: rotate(-135deg);
+    }
+
+    /* サブメニュー内のリンクは下線アニメーション不要 */
+    .pc_menu .sub-menu li a::after {
+        display: none;
     }
 
 }
@@ -705,6 +772,48 @@ ul.sp_menu ul.children li:last-child {
     }
 }
 
+/*------------------------------------*\
+Breadcrumb
+/*------------------------------------*/
+.breadcrumb {
+    padding: 1rem 0;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '/';
+    margin-right: 0.25rem;
+    color: var(--color-text);
+    opacity: 0.5;
+}
+
+.breadcrumb-item a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+.breadcrumb-item[aria-current="page"] {
+    color: var(--color-text);
+}
+
 .archive-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -734,28 +843,38 @@ ul.sp_menu ul.children li:last-child {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.25rem;
     height: 100%;
 }
 
 .front-post {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--color-border);
-    border-radius: .5rem;
+    border: 1px solid rgba(203, 213, 225, 0.4);
+    border-radius: 0.75rem;
     overflow: hidden;
-    padding: .5rem;
+    padding: 0;
     background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.front-post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 
 .front-header {
     flex: 1;
     min-height: 50px;
+    padding: 0.75rem 1rem 0;
 }
 
 .front-title {
-    font-size: clamp(1.15rem, calc(0.75rem + 1vw), 1.25rem);
-    line-height: 1.15;
+    font-size: clamp(0.95rem, calc(0.7rem + 0.8vw), 1.125rem);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
@@ -765,11 +884,18 @@ ul.sp_menu ul.children li:last-child {
     -webkit-box-orient: vertical;
 }
 
+.front-title a {
+    text-decoration: none;
+}
+
+.front-title a:hover {
+    color: var(--color-link-focus);
+}
+
 .front-thumbnail {
     width: 100%;
     height: 48%;
     overflow: hidden;
-    margin-bottom: .5rem;
 }
 
 .front-thumbnail:nth-child(1) {
@@ -780,12 +906,47 @@ ul.sp_menu ul.children li:last-child {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.front-post:hover .front-thumbnail img {
+    transform: scale(1.04);
+}
+
+.front-meta {
+    padding: 0.5rem 1rem 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.front-category {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: 0.25rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    line-height: 1.5;
+}
+
+.front-category:hover {
+    background-color: var(--color-primary-hover);
+    color: #fff;
 }
 
 @media (min-width: 768px) {
     .front-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 320px;
+        gap: 1.5rem;
         padding: 1rem;
     }
 
@@ -793,12 +954,26 @@ ul.sp_menu ul.children li:last-child {
         grid-column: 1 / 3;
         grid-row: 1 / 3;
     }
+
+    .front-post:nth-child(1) .front-header {
+        padding: 1rem 1.25rem 0;
+    }
+
+    .front-post:nth-child(1) .front-title {
+        font-size: clamp(1.25rem, calc(1rem + 0.8vw), 1.5rem);
+    }
+
+    .front-post:nth-child(1) .front-meta {
+        padding: 0.75rem 1.25rem 1.25rem;
+        font-size: 0.875rem;
+    }
 }
 
 @media (min-width: 1280px) {
     .front-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: 300px;
+        gap: 1.5rem;
         padding: 1rem;
     }
 
@@ -819,4 +994,98 @@ ul.sp_menu ul.children li:last-child {
     margin-top: 3rem;
     border-top: 1px solid var(--color-border);
     padding-top: 2rem;
+}
+
+/*------------------------------------*\
+Post Taxonomies
+/*------------------------------------*/
+.post-taxonomies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+.post-taxonomies .cat-links,
+.post-taxonomies .tags-links {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.post-taxonomies a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+.post-taxonomies a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+/*------------------------------------*\
+Social Share Buttons
+/*------------------------------------*/
+.social-share {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .social-share {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.social-share-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.social-share-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-share-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-share-link:hover {
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.social-share-link:focus-visible {
+    outline: 2px solid var(--color-link-focus);
+    outline-offset: 2px;
+}
+
+.social-share-x:hover {
+    background-color: #000;
+}
+
+.social-share-facebook:hover {
+    background-color: #1877f2;
+}
+
+.social-share-linkedin:hover {
+    background-color: #0a66c2;
 }

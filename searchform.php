@@ -13,7 +13,7 @@
     class="search-form">
     <label class="search-form-label sr-only" for="search-form-input1"><?php esc_html_e('Search', 'easychic') ?></label>
     <div class="search-form-wrap">
-        <input class="search-form-input" id="search-form-input1" placeholder="<?php esc_attr_e('Please enter word', 'easychic'); ?>" value="" type="search" name="s" required="">
+        <input class="search-form-input" id="search-form-input1" placeholder="<?php esc_attr_e('Please enter word', 'easychic'); ?>" value="<?php echo esc_attr(get_search_query()); ?>" type="search" name="s" required="">
         <button aria-label="<?php esc_attr_e('Search', 'easychic') ?>" class="search-form-button" type="submit">
             <span class="sr-only"><?php esc_html_e('Search', 'easychic') ?></span>
             <span>

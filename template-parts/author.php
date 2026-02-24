@@ -8,7 +8,7 @@ if (get_the_author_meta('description')) {
         </div>
         <div class="author-description">
             <h2 class="author-title"><?php esc_html_e('About the Author:', 'easychic'); ?></h2>
-            <p class="author-bio"><?php the_author_meta('description'); ?></p>
+            <p class="author-bio"><?php echo esc_html(get_the_author_meta('description')); ?></p>
         </div>
     </div>
 <?php

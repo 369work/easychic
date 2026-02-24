@@ -1,4 +1,4 @@
-<div class="nav-post">
+<nav class="nav-post" aria-label="<?php esc_attr_e('Post navigation', 'easychic'); ?>">
     <?php
 
     $previous_post = get_previous_post();
@@ -8,7 +8,7 @@
             <div class="previous-post-link-wrap">
                 <div class="previous-post-link">
 
-                    <?php esc_html_e('&laquo; Previous Page', 'easychic'); ?><br />
+                    <?php esc_html_e('Previous Post', 'easychic'); ?><br />
 
                     <?php previous_post_link('%link'); ?>
 
@@ -25,7 +25,7 @@
             <div class="next-post-link-wrap">
                 <div class="next-post-link">
 
-                    <?php esc_html_e('Next Page &raquo;', 'easychic'); ?><br />
+                    <?php esc_html_e('Next Post', 'easychic'); ?><br />
 
                     <?php next_post_link('%link'); ?>
                 </div>
@@ -33,4 +33,4 @@
         </div>
     <?php endif; ?>
 
-</div>
+</nav>

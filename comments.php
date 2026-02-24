@@ -32,7 +32,7 @@ if (post_password_required()) {
                     'easychic'
                 ),
                 number_format_i18n(get_comments_number()),
-                '<span>' . get_the_title() . '</span>'
+                '<span>' . esc_html(get_the_title()) . '</span>'
             );
             ?>
         </h2>
@@ -50,9 +50,9 @@ if (post_password_required()) {
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
             <nav class="navigation comment-navigation" role="navigation">
 
-                <h1 class="screen-reader-text section-heading"><?php _e('Comment navigation', 'easychic'); ?></h1>
-                <div class="nav-previous"><?php previous_comments_link(__('&larr; Older Comments', 'easychic')); ?></div>
-                <div class="nav-next"><?php next_comments_link(__('Newer Comments &rarr;', 'easychic')); ?></div>
+                <h1 class="screen-reader-text section-heading"><?php esc_html_e('Comment navigation', 'easychic'); ?></h1>
+                <div class="nav-previous"><?php previous_comments_link(esc_html__('&larr; Older Comments', 'easychic')); ?></div>
+                <div class="nav-next"><?php next_comments_link(esc_html__('Newer Comments &rarr;', 'easychic')); ?></div>
             </nav><!-- .comment-navigation -->
         <?php endif;
         ?>

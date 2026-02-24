@@ -1,5 +1,7 @@
 <?php
 /* The template for displaying all single posts */
+
+defined('ABSPATH') || exit;
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -13,14 +15,14 @@
                 if ($categories_list) :
                     /* translators: %s: List of categories. */
                 ?>
-                    <span class="cat-links"><?php echo esc_html__('Categorized :', 'easychic') . ' ' . $categories_list; ?></span>
+                    <span class="cat-links"><?php echo esc_html__('Categorized :', 'easychic') . ' ' . wp_kses_post($categories_list); ?></span>
                 <?php
                 endif;
 
                 $tags_list = get_the_tag_list('', wp_get_list_item_separator());
                 if ($tags_list && ! is_wp_error($tags_list)) :
                 ?>
-                    <span class="tags-links"><?php esc_html_e('Tagged :', 'easychic') . ' ' . $tags_list; ?></span>
+                    <span class="tags-links"><?php echo esc_html__('Tagged :', 'easychic') . ' ' . wp_kses_post($tags_list); ?></span>
                 <?php
                 endif;
                 ?>
@@ -93,4 +95,6 @@
             ?>
         </div>
     </div><!-- .entry-footer -->
+
+    <?php easychic_social_share_buttons(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->

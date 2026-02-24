@@ -70,7 +70,7 @@ function easychic_customize_register($wp_customize)
     $wp_customize->add_setting('easychic_font_setting', array(
         'default' => 'noto-sans-jp',
         'transport' => 'refresh',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'easychic_sanitize_font',
     ));
 
     $wp_customize->add_control(new Font_Radio_Control($wp_customize, 'easychic_font_setting', array(
@@ -172,7 +172,7 @@ function easychic_customize_register($wp_customize)
 
     // style select section
     $wp_customize->add_section('easychic_style_section', array(
-        'title'    => __('Site Style Select', 'easychic'),
+        'title'    => esc_html__('Site Style Select', 'easychic'),
         'priority' => 3,
         'panel' => 'easychic_setting',
     ));
@@ -181,11 +181,11 @@ function easychic_customize_register($wp_customize)
     $wp_customize->add_setting('easychic_style_setting', array(
         'default' => 'style1',
         'transport' => 'refresh',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'easychic_sanitize_style',
     ));
 
     $wp_customize->add_control(new Easychic_Image_Radio_Control($wp_customize, 'easychic_image_radio_control', array(
-        'label'    => __('Select Image', 'easychic'),
+        'label'    => esc_html__('Select Image', 'easychic'),
         'section'  => 'easychic_style_section',
         'settings' => 'easychic_style_setting',
         'choices'  => array(
@@ -212,10 +212,30 @@ function easychic_sanitize_layout($input)
     }
 }
 
+// Sanitize style setting
+function easychic_sanitize_style($input)
+{
+    $valid = array('style1', 'style2', 'style3', 'style4');
+    if (in_array($input, $valid, true)) {
+        return $input;
+    }
+    return 'style1';
+}
+
+// Sanitize font setting
+function easychic_sanitize_font($input)
+{
+    $valid = array('noto-sans-jp', 'noto-serif-jp');
+    if (in_array($input, $valid, true)) {
+        return $input;
+    }
+    return 'noto-sans-jp';
+}
+
 // Customizer body font CSS
 function easychic_customizer_body_css()
 {
-    $font_css = esc_attr(get_theme_mod('easychic_font_setting', 'noto-sans-jp'));
+    $font_css = sanitize_html_class(get_theme_mod('easychic_font_setting', 'noto-sans-jp'));
 
     if (!empty($font_css)) {
         add_filter('body_class', function ($classes) use ($font_css) {
@@ -224,20 +244,19 @@ function easychic_customizer_body_css()
         });
     }
 }
-add_action('wp_head', 'easychic_customizer_body_css');
+add_action('after_setup_theme', 'easychic_customizer_body_css');
 
 // layout selection
 function easychic_sidebar_layout()
 {
-    $layout = esc_attr(get_theme_mod('easychic_page_layout', 'two-columns'));
-    if ($layout == 'one-column') {
-        $layout_class = 'one-column';
-    } elseif ($layout == 'one-column-none') {
-        $layout_class = 'one-column-none';
-    } else {
-        $layout_class = 'two-columns';
+    $layout = get_theme_mod('easychic_page_layout', 'two-columns');
+    $valid_layouts = array('one-column', 'one-column-none', 'two-columns');
+
+    if (in_array($layout, $valid_layouts, true)) {
+        return $layout;
     }
-    return $layout_class;
+
+    return 'two-columns';
 }
 
 // cta button
@@ -369,9 +388,7 @@ function easychic_customizer_style_css()
     $cta_text_color = get_theme_mod('easychic_header_cta_text_color', '#ffffff');
     $custom_css .= '.header_cta_link { background-color: ' . esc_attr($cta_bg_color) . '; color: ' . esc_attr($cta_text_color) . '; }' . "\n";
 
-    wp_register_style('theme-style-handle', false);
-    wp_enqueue_style('theme-style-handle');
-    wp_add_inline_style('theme-style-handle', $custom_css);
+    wp_add_inline_style('easychic-style', $custom_css);
 
 }
-add_action('wp_head', 'easychic_customizer_style_css');
+add_action('wp_enqueue_scripts', 'easychic_customizer_style_css');

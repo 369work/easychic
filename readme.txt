@@ -7,7 +7,7 @@ Requires PHP: 8.2
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, portfolio, one-column, right-sidebar, custom-logo, custom-menu, custom-colors, editor-style, featured-images, full-width-template, theme-options, translation-ready, threaded-comments, wide-blocks
-Stable tag: 2.1
+Stable tag: 2.2
 
 A modern and elegant multipurpose WordPress theme.
 
@@ -100,6 +100,9 @@ Yes, you can use it commercially under the GNU GPL v3.0 license.
 * Fixed search results template
 * Updated theme tags
 * Code quality improvements throughout
+
+= 2.2 =
+* Compatible with WordPress 7.0
 
 == Resources Licenses ==
 * Google Fonts: https://fonts.google.com/ (Noto Sans JP, Noto Serif JP) SIL Open Font License, Version 1.1 (https://openfontlicense.org).

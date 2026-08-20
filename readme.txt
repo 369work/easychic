@@ -2,12 +2,12 @@
 Theme Name: EasyChic
 Contributors: 369work
 Requires at least: 6.6
-Tested up to: 6.9
-Requires PHP: 8.2
+Tested up to: 7.1
+Requires PHP: 8.1
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, portfolio, one-column, right-sidebar, custom-logo, custom-menu, custom-colors, editor-style, featured-images, full-width-template, theme-options, translation-ready, threaded-comments, wide-blocks
-Stable tag: 2.2
+Stable tag: 2.3
 
 A modern and elegant multipurpose WordPress theme.
 
@@ -103,6 +103,13 @@ Yes, you can use it commercially under the GNU GPL v3.0 license.
 
 = 2.2 =
 * Compatible with WordPress 7.0
+
+= 2.3 =
+* Compatible with WordPress 7.1
+* Screenshot changed
+* WPCS format
+* Fixed Noto Serif JP font-weight declaration
+* Added theme webfonts to the block editor styles
 
 == Resources Licenses ==
 * Google Fonts: https://fonts.google.com/ (Noto Sans JP, Noto Serif JP) SIL Open Font License, Version 1.1 (https://openfontlicense.org).

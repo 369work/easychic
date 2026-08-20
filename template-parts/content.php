@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template part for displaying posts
  *
@@ -10,51 +9,51 @@
  * @since EasyChic 1.0
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('index-post'); ?>>
-    <div class="entry-header">
-        <?php
-        if (is_single()) {
-            the_title('<h1 class="entry-title">', '</h1>');
-        } else {
-            the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-        }
-        ?>
-    </div><!-- .entry-header -->
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'index-post' ); ?>>
+	<div class="entry-header">
+		<?php
+		if ( is_single() ) {
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		} else {
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
+		?>
+	</div><!-- .entry-header -->
 
-    <div class="entry-wrap">
-        <?php if (has_post_thumbnail()) : ?>
-            <div class="entry-thumbnail">
-                <?php
-                echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">';
-                the_post_thumbnail('easychic-thumbnail');
-                echo '</a>';
-                ?>
-            </div>
-        <?php endif; ?>
+	<div class="entry-wrap">
+		<?php if ( has_post_thumbnail() ) : ?>
+		<div class="entry-thumbnail">
+			<?php
+				echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+				the_post_thumbnail( 'easychic-thumbnail' );
+				echo '</a>';
+			?>
+		</div>
+		<?php endif; ?>
 
-        <div class="entry-content">
-            <?php
-            $excerpt = get_the_excerpt();
-            if (mb_strlen($excerpt, 'utf-8') > 100) {
-                $excerpt = mb_substr($excerpt, 0, 100, 'utf-8') . '...';
-                $excerpt .= '<a class="readmore" href="' . esc_url(get_the_permalink()) . '">' . esc_html__('Read more', 'easychic') . '</a>';
-            }
-            echo '<p>' . wp_kses_post($excerpt) . '</p>';
-            ?>
-        </div><!-- .entry-content -->
-    </div>
+		<div class="entry-content">
+			<?php
+			$excerpt = get_the_excerpt();
+			if ( mb_strlen( $excerpt, 'utf-8' ) > 100 ) {
+				$excerpt  = mb_substr( $excerpt, 0, 100, 'utf-8' ) . '...';
+				$excerpt .= '<a class="readmore" href="' . esc_url( get_the_permalink() ) . '">' . esc_html__( 'Read more', 'easychic' ) . '</a>';
+			}
+			echo '<p>' . wp_kses_post( $excerpt ) . '</p>';
+			?>
+		</div><!-- .entry-content -->
+	</div>
 
-    <div class="entry-meta">
-        <?php
-        echo '<span class="posted-on">' . esc_html(get_the_date()) . '</span>';
-        echo '<span class="categories-links">' . wp_kses_post(get_the_category_list(', ')) . '</span>';
-        $tags_list = get_the_tag_list('', ', ');
-        if ($tags_list && ! is_wp_error($tags_list)) {
-            echo '<span class="tags-links">' . wp_kses_post($tags_list) . '</span>';
-        }
-        ?>
-    </div>
+	<div class="entry-meta">
+		<?php
+		echo '<span class="posted-on">' . esc_html( get_the_date() ) . '</span>';
+		echo '<span class="categories-links">' . wp_kses_post( get_the_category_list( ', ' ) ) . '</span>';
+		$tags_list = get_the_tag_list( '', ', ' );
+		if ( $tags_list && ! is_wp_error( $tags_list ) ) {
+			echo '<span class="tags-links">' . wp_kses_post( $tags_list ) . '</span>';
+		}
+		?>
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

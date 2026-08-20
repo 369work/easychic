@@ -1,36 +1,46 @@
-<nav class="nav-post" aria-label="<?php esc_attr_e('Post navigation', 'easychic'); ?>">
-    <?php
+<?php
+/**
+ * Post navigation template part.
+ *
+ * @package easychic
+ */
 
-    $previous_post = get_previous_post();
-    if (!empty($previous_post)) : ?>
+?>
+<nav class="nav-post" aria-label="<?php esc_attr_e( 'Post navigation', 'easychic' ); ?>">
+	<?php
 
-        <div class="left-column">
-            <div class="previous-post-link-wrap">
-                <div class="previous-post-link">
+	$previous_post = get_previous_post();
+	if ( ! empty( $previous_post ) ) :
+		?>
 
-                    <?php esc_html_e('Previous Post', 'easychic'); ?><br />
+	<div class="left-column">
+		<div class="previous-post-link-wrap">
+			<div class="previous-post-link">
 
-                    <?php previous_post_link('%link'); ?>
+				<?php esc_html_e( 'Previous Post', 'easychic' ); ?><br />
 
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
+				<?php previous_post_link( '%link' ); ?>
 
-    <?php
-    $next_post = get_next_post();
-    if (!empty($next_post)) : ?>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
 
-        <div class="right-column">
-            <div class="next-post-link-wrap">
-                <div class="next-post-link">
+	<?php
+	$next_post = get_next_post();
+	if ( ! empty( $next_post ) ) :
+		?>
 
-                    <?php esc_html_e('Next Post', 'easychic'); ?><br />
+	<div class="right-column">
+		<div class="next-post-link-wrap">
+			<div class="next-post-link">
 
-                    <?php next_post_link('%link'); ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
+				<?php esc_html_e( 'Next Post', 'easychic' ); ?><br />
+
+				<?php next_post_link( '%link' ); ?>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
 
 </nav>

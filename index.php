@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying the index Page
  *
@@ -10,38 +9,39 @@
  * @subpackage EasyChic
  * @since EasyChic 1.0
  */
+
 ?>
 
 <?php get_header(); ?>
 
 <div id="content" class="site-content">
-    <main id="main" class="site-main" role="main">
-        <div class="container">
-            <section class="content-area">
-                <?php
-                if (have_posts()) :
-                    while (have_posts()) :
-                        the_post();
-                        get_template_part('template-parts/content', get_post_format());
-                    endwhile;
-                ?>
-                    <div class="navigation">
-                        <div class="previous">
-                            <?php previous_posts_link(esc_html__('&laquo; Previous Page', 'easychic')); ?>
-                        </div>
-                        <div class="next">
-                            <?php next_posts_link(esc_html__('Next Page &raquo;', 'easychic')); ?>
-                        </div>
-                    </div>
-                <?php
-                else :
-                    get_template_part('template-parts/content-none');
-                endif;
-                ?>
-            </section>
-        </div>
-    </main>
-    <?php get_sidebar(); ?>
+	<main id="main" class="site-main" role="main">
+		<div class="container">
+			<section class="content-area">
+				<?php
+				if ( have_posts() ) :
+					while ( have_posts() ) :
+						the_post();
+						get_template_part( 'template-parts/content', get_post_format() );
+					endwhile;
+					?>
+				<div class="navigation">
+					<div class="previous">
+						<?php previous_posts_link( esc_html__( '&laquo; Previous Page', 'easychic' ) ); ?>
+					</div>
+					<div class="next">
+						<?php next_posts_link( esc_html__( 'Next Page &raquo;', 'easychic' ) ); ?>
+					</div>
+				</div>
+					<?php
+				else :
+					get_template_part( 'template-parts/content-none' );
+				endif;
+				?>
+			</section>
+		</div>
+	</main>
+	<?php get_sidebar(); ?>
 </div><!-- #content -->
 
 <?php get_footer(); ?>

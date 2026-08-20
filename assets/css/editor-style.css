@@ -1,0 +1,18 @@
+/*------------------------------------*\
+Include Fonts
+/*------------------------------------*/
+@font-face {
+	font-family: 'Noto Sans JP';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('../fonts/Noto_Sans_JP/NotoSansJP-subset-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Noto Serif JP';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('../fonts/Noto_Serif_JP/NotoSerifJP-subset-Regular.woff2') format('woff2');
+}

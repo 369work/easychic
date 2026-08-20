@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying the sidebar
  *
@@ -9,18 +8,19 @@
  * @subpackage EasyChic
  * @since EasyChic 1.0
  */
+
 ?>
 
-<?php if (easychic_sidebar_layout() !== 'one-column-none'): ?>
-<aside class="site-aside" role="complementary" aria-label="<?php esc_attr_e('Sidebar', 'easychic'); ?>">
-    <div class="container">
-        <div class="aside-inner">
-            <?php
-            if (is_active_sidebar('sidebar-1')) {
-                dynamic_sidebar('sidebar-1');
-            }
-            ?>
-        </div>
-    </div>
+<?php if ( easychic_sidebar_layout() !== 'one-column-none' ) : ?>
+<aside class="site-aside" role="complementary" aria-label="<?php esc_attr_e( 'Sidebar', 'easychic' ); ?>">
+	<div class="container">
+		<div class="aside-inner">
+			<?php
+			if ( is_active_sidebar( 'sidebar-1' ) ) {
+				dynamic_sidebar( 'sidebar-1' );
+			}
+			?>
+		</div>
+	</div>
 </aside>
 <?php endif; ?>

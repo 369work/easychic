@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying 404 pages (not found)
  *
@@ -7,27 +6,29 @@
  * @subpackage EasyChic
  * @since EasyChic 1.0
  */
-?>
 
+?>
 
 <?php get_header(); ?>
 
 
 <div id="content" class="site-content">
-    <main id="main" class="site-main" role="main">
-        <div class="container">
-            <?php easychic_breadcrumb(); ?>
-            <section class="content-area">
-                <div class="error-404">
-                    <p class="not-found">404</p>
-                    <h1><?php esc_html_e('Page not found', 'easychic'); ?></h1>
-                    <p><?php esc_html_e('Sorry, we could not find the page you were looking for.', 'easychic') ?></p>
-                    <p><a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Back to Home', 'easychic'); ?></a></p>
-                </div>
+	<main id="main" class="site-main" role="main">
+		<div class="container">
+			<?php easychic_breadcrumb(); ?>
+			<section class="content-area">
+				<div class="error-404">
+					<p class="not-found">404</p>
+					<h1><?php esc_html_e( 'Page not found', 'easychic' ); ?></h1>
+					<p><?php esc_html_e( 'Sorry, we could not find the page you were looking for.', 'easychic' ); ?></p>
+					<p><a
+							href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Back to Home', 'easychic' ); ?></a>
+					</p>
+				</div>
 
-            </section>
-        </div>
-    </main>
+			</section>
+		</div>
+	</main>
 </div><!-- #content -->
 
 <?php get_footer(); ?>

@@ -199,17 +199,37 @@ msgstr "レビューする"
 msgid "Theme Support"
 msgstr "テーマのサポート"
 
-#: inc/add_functions.php:142
+#: inc/add_functions.php
 msgid ""
-"If you have any questions or need help with the Easychic theme, please visit "
-"the support page."
+"Free support for the Easychic theme is provided on the WordPress.org support "
+"forum."
 msgstr ""
-"Easychic テーマに関してご質問やサポートが必要な場合は、サポート ページをご覧"
-"ください。"
+"Easychic テーマの無料サポートは、WordPress.org のサポートフォーラムで対応して"
+"います。"
 
-#: inc/add_functions.php:143
-msgid "Support"
-msgstr "サポート"
+#: inc/add_functions.php
+msgid "Support Forum"
+msgstr "サポートフォーラム"
+
+#: inc/add_functions.php
+msgid "(opens in a new tab)"
+msgstr "（新しいタブで開きます）"
+
+#: inc/add_functions.php
+msgid ""
+"Paid customization and paid email support are also available. For details, "
+"please contact 369Theme."
+msgstr ""
+"有料のカスタマイズと、有料のメールサポートもご用意しています。詳しくは "
+"369Theme までお問い合わせください。"
+
+#: inc/add_functions.php
+msgid "Request Customization"
+msgstr "カスタマイズを依頼する"
+
+#: inc/add_functions.php
+msgid "Contact 369Theme"
+msgstr "369Theme に問い合わせる"
 
 #: inc/add_functions.php:147
 msgid "When you upgrade to Pro you can:"

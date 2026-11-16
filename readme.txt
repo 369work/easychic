@@ -3,11 +3,11 @@ Theme Name: EasyChic
 Contributors: 369work
 Requires at least: 6.6
 Tested up to: 7.1
-Requires PHP: 8.1
+Requires PHP: 7.4
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, portfolio, one-column, right-sidebar, custom-logo, custom-menu, custom-colors, editor-style, featured-images, full-width-template, theme-options, translation-ready, threaded-comments, wide-blocks
-Stable tag: 2.3
+Stable tag: 2.4
 
 A modern and elegant multipurpose WordPress theme.
 
@@ -48,6 +48,11 @@ You can customize various settings from Appearance → Customize in the admin pa
 
 = Can I use this theme for commercial purposes? =
 Yes, you can use it commercially under the GNU GPL v3.0 license.
+
+= Where can I get support? =
+Free support is provided on the WordPress.org support forum: https://wordpress.org/support/theme/easychic/
+Paid customization is available at https://369theme.com/order
+Paid email support is also available. For details, please contact 369Theme: https://369theme.com/contact?product=easychic
 
 == Changelog ==
 = 1.0 =
@@ -110,6 +115,12 @@ Yes, you can use it commercially under the GNU GPL v3.0 license.
 * WPCS format
 * Fixed Noto Serif JP font-weight declaration
 * Added theme webfonts to the block editor styles
+
+= 2.4 =
+* Lowered the minimum PHP version to 7.4
+* Updated the support section on the theme admin page (support forum, paid customization, contact)
+* Added a support FAQ to readme.txt
+* Removed the Pro upgrade section from the theme admin page
 
 == Resources Licenses ==
 * Google Fonts: https://fonts.google.com/ (Noto Sans JP, Noto Serif JP) SIL Open Font License, Version 1.1 (https://openfontlicense.org).

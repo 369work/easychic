@@ -25,12 +25,6 @@ add_action( 'admin_menu', 'easychic_add_admin_menu' );
  * Display the theme options page.
  */
 function easychic_theme_description_page() {
-	$lang = get_bloginfo( 'language' );
-	if ( 'ja' === $lang ) {
-		$easychic_theme_uri = 'https://easychic.369work.net/index-ja.html';
-	} else {
-		$easychic_theme_uri = 'https://easychic.369work.net/';
-	}
 	?>
 <style>
 #wpwrap .admin-title {
@@ -60,16 +54,6 @@ function easychic_theme_description_page() {
 	background-color: #fff;
 }
 
-#wpwrap .content-pro {
-	box-sizing: border-box;
-	width: 100%;
-	margin-top: 1rem;
-	padding: 1rem;
-	border: 3px solid #b4ffa1;
-	border-radius: 5px;
-	background-color: #feffef;
-}
-
 .content .border {
 	border: 1px solid #5e96ff;
 }
@@ -81,6 +65,23 @@ function easychic_theme_description_page() {
 .content a {
 	color: #fff;
 	font-size: 1rem;
+}
+
+.content .easychic-support-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 1rem;
+}
+
+.content .easychic-button {
+	display: inline-block;
+	margin: 1rem 0;
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #0073aa;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
 }
 </style>
 <div class="wrap">
@@ -159,76 +160,22 @@ function easychic_theme_description_page() {
 
 	<div class="content">
 		<h2 class="admin-sub-title"><?php esc_html_e( 'Theme Support', 'easychic' ); ?></h2>
-		<p><?php esc_html_e( 'If you have any questions or need help with the Easychic theme, please visit the support page.', 'easychic' ); ?>
-		</p>
-		<a href="<?php echo esc_url( $easychic_theme_uri ); ?>" target="_blank"
-			style="display: inline-block; margin: 1rem 0; padding: 10px 20px; background-color: #0073aa; color: #fff; text-decoration: none; border-radius: 5px; text-align: center;"><?php esc_html_e( 'Support', 'easychic' ); ?></a>
-	</div>
-
-	<div class="content-pro">
-		<h3 class="admin-sub-title"><?php esc_html_e( 'When you upgrade to Pro you can:', 'easychic' ); ?></h3>
-		<p><?php esc_html_e( 'Upgrading to Pro gives you even more customization and faster support.', 'easychic' ); ?>
-		</p>
-		<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Font selection', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Custom logo', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Custom background Color', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Custom background', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Menu placement', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Sidebar and layout', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Sidebar Widget', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Header style', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Footer style', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Sidebar style', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Main style', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'SEO Support', 'easychic' ); ?></p>
-			</div>
-			<div
-				style="border: 1px solid #94a3b8; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f0f9ff;">
-				<p class="bold"><?php esc_html_e( 'Theme Support', 'easychic' ); ?></p>
-			</div>
-		</div>
-		<a href="https://369theme.com/" target="_blank"
-			style="display: inline-block; margin: 1rem 0; padding: 10px 20px; background-color: #0073aa; color: #fff; text-decoration: none; border-radius: 5px; text-align: center;">
-			<?php esc_html_e( 'Go to details page', 'easychic' ); ?>
+		<p><?php esc_html_e( 'Free support for the Easychic theme is provided on the WordPress.org support forum.', 'easychic' ); ?></p>
+		<a class="easychic-button" href="https://wordpress.org/support/theme/easychic/" target="_blank" rel="noopener noreferrer">
+			<?php esc_html_e( 'Support Forum', 'easychic' ); ?>
+			<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'easychic' ); ?></span>
 		</a>
-
+		<p><?php esc_html_e( 'Paid customization and paid email support are also available. For details, please contact 369Theme.', 'easychic' ); ?></p>
+		<div class="easychic-support-links">
+			<a class="easychic-button" href="https://369theme.com/order" target="_blank" rel="noopener noreferrer">
+				<?php esc_html_e( 'Request Customization', 'easychic' ); ?>
+				<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'easychic' ); ?></span>
+			</a>
+			<a class="easychic-button" href="https://369theme.com/contact?product=easychic" target="_blank" rel="noopener noreferrer">
+				<?php esc_html_e( 'Contact 369Theme', 'easychic' ); ?>
+				<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'easychic' ); ?></span>
+			</a>
+		</div>
 	</div>
 
 </div>
